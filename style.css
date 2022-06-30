@@ -5,36 +5,81 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.navbar{
+nav{
+    height: 6rem;
+    width: 100vw;
+    background-color: #ffffff;
     display: flex;
-    position: relative;
-    margin-top: 1.7rem;
+    position: fixed;
+    z-index: 10;
+}
+.logo{
+    padding:1vh 1vw;
+    text-align: center;
+}
+.logo img {
+    height: 5rem;
+    width: 5rem;
+}
+.nav-links{
+    display: flex;
+    list-style: none; 
+    width: 88vw;
+    padding: 0 0.7vw;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
+    text-transform: uppercase;
 }
-.navbar img{
-    margin-left: 1.7rem;
-}
-.navbar ul{
-      display: flex;
-      margin-right: 1.7rem;
-}
-.navbar ul li{
-    list-style: none;
-    margin-left: 20px;
-    padding: 10px;
-    font-size: 18px;
-    color: #212226;
-}
-.navbar ul li a{
+.nav-links li a{
     text-decoration: none;
+    margin: 0 0.7vw;
     color: #212226;
 }
-.navbar ul li span{
+.nav-links li a:hover {
+    color: #20B9FF;
+}
+.nav-links li {
+    position: relative;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.nav-links li a::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
     background-color: #20B9FF;
-    padding: 10px 20px 10px 20px;
-    color: #fbfbfb;
-    border-radius: 6px;
+    position: absolute;
+    transition: all ease-in-out 250ms;
+    margin: 0 0 0 10%;
+}
+.nav-links li a:hover::before{
+    width: 80%;
+}
+.login-button{
+    background-color: transparent;
+    border: 1.5px solid #f2f5f7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+.login-button:hover {
+    color: #ffffff;
+    background-color: #20B9FF;
+    border:1.5px solid #f2f5f7;
+    transition: all ease-in-out 350ms;
+}
+.hamburger div{
+    width: 30px;
+    height:3px;
+    background: #212226;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+.hamburger{
+    display: none;
 }
 .heading-1{
     display: flex;
@@ -138,7 +183,8 @@
 }
 .img-3{
     width: 80%;
-    margin: -150px auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 .img-3 img{
   width: 100%;
@@ -146,8 +192,8 @@
 }
 .text-about{
     text-align: center;
-    margin-top: 20px;
     color: #212226;
+    margin-top: -90px;
 }
 .text-about h1{
     font-size: 32px;
@@ -202,7 +248,7 @@
 }
 .text-services{
     text-align: center;
-    margin-top: 20px;
+    margin-top: -90px;
     color: #212226;
 }
 .text-services h1{
@@ -221,4 +267,106 @@
 }
 .text-services p img{
     margin-right: 20px;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .text h1{
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+    .text button{
+        font-size: 12px;
+    }
+     .text-1 h1{
+         font-size: 30px;
+         margin-bottom: 16px;
+     }
+     .text-1 p{
+         font-size: 16px;
+     }
+}
+@media only screen and (max-width: 768px)
+{
+    nav{
+        z-index: 3;
+        position: relative;
+    }
+    .hamburger{ 
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+    .nav-links{
+        position: fixed;
+        background: #ffffff;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+   
+    .nav-links.open{
+        clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    li.fade{
+        opacity: 1;
+    }
+    .heading-1{
+        display: block;
+        text-align: center;
+    }
+    .heading-2{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .text{
+        padding: 0;
+        margin-top: 80px;
+    }
+    .img-1 {
+        width: 500px;
+        margin: auto;
+    }
+    .img-2 {
+        width: 500px;
+        margin: auto;
+    }
+    .text-1{
+        padding: 0;
+        margin-top: 0;
+    }
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
 }
