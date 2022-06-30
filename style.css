@@ -200,3 +200,25 @@
     font-size: 1.7rem; 
     display: none;
 }
+.text-services{
+    text-align: center;
+    margin-top: 20px;
+    color: #212226;
+}
+.text-services h1{
+    color: #212226;
+    font-size: 36px;
+}
+.text-services p{
+  text-align: left;
+  max-width: 600px;
+  margin: 40px auto;
+  color: #20B9FF;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-services p img{
+    margin-right: 20px;
+}
